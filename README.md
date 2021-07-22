@@ -92,6 +92,13 @@ try {
 // 获取全局应用配置
 ```
 
+### // TODO
+
+- hooks
+- microservices
+- mongoose
+- websockets
+
 ### 相关资源
 
 - [jest](https://jestjs.io/zh-Hans/docs/getting-started)
