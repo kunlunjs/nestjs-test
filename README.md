@@ -4,6 +4,9 @@
 
 - `docker-compose up -d` 安装启动数据库等容器
 - `docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}"` 查看启动的容器情况
+- `docker-compose down` 关闭所有容器
+- `docker ps -a` 查看所有容器（包含已停止）
+- `docker rm {containerId}` 删除容器 ID 为 containerId 的容器
 
 ### 测试用例基本结构
 
@@ -94,7 +97,6 @@ try {
 
 ### // TODO
 
-- hooks
 - microservices
 - mongoose
 - websockets
