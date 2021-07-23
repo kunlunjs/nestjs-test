@@ -5,6 +5,7 @@ specifiers:
   '@nestjs/common': ^8.0.4
   '@nestjs/core': ^8.0.4
   '@nestjs/microservices': ^8.0.4
+  '@nestjs/mongoose': ^8.0.0
   '@nestjs/platform-express': ^8.0.4
   '@nestjs/platform-fastify': ^8.0.4
   '@nestjs/schematics': ^8.0.2
@@ -31,6 +32,8 @@ specifiers:
   eslint-plugin-simple-import-sort: ^7.0.0
   express: ^4.17.1
   jest: 27.0.6
+  mongodb: ^4.0.1
+  mongoose: ^5.13.3
   mysql2: ^2.2.5
   prettier: ^2.3.2
   reflect-metadata: ^0.1.13
@@ -49,6 +52,7 @@ dependencies:
   '@nestjs/common': registry.nlark.com/@nestjs/common/8.0.4_720aee53c9b35ab07755629fb64263e2
   '@nestjs/core': registry.nlark.com/@nestjs/core/8.0.4_2af18fb01f8327c1d6d9ce13adf5e592
   '@nestjs/microservices': registry.nlark.com/@nestjs/microservices/8.0.4_2610664774cb7a639480193c780ef158
+  '@nestjs/mongoose': registry.nlark.com/@nestjs/mongoose/8.0.0_a2f0f28a212a354a393b376f814c3636
   '@nestjs/platform-express': registry.nlark.com/@nestjs/platform-express/8.0.4_dbb23fa745e40b87eda38a58a66b6bd5
   '@nestjs/platform-fastify': registry.nlark.com/@nestjs/platform-fastify/8.0.4_dbb23fa745e40b87eda38a58a66b6bd5
   '@nestjs/typeorm': registry.nlark.com/@nestjs/typeorm/8.0.1_278c2845f6cdb9940768ae523f98e507
@@ -57,6 +61,8 @@ dependencies:
   class-transformer: 0.4.0
   class-validator: 0.13.1
   express: 4.17.1
+  mongodb: registry.nlark.com/mongodb/4.0.1
+  mongoose: registry.nlark.com/mongoose/5.13.3
   mysql2: 2.2.5
   reflect-metadata: 0.1.13
   rimraf: 3.0.2
@@ -260,6 +266,8 @@ packages:
     engines: {node: '>= 6.0.0'}
     dependencies:
       debug: registry.nlark.com/debug/4.3.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /ajv-keywords/3.5.2_ajv@6.12.6:
@@ -377,6 +385,8 @@ packages:
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-instrument: 4.0.3
       test-exclude: 6.0.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-preset-current-node-syntax/1.0.1_@babel+core@7.14.8:
@@ -410,6 +420,13 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /bl/2.2.1:
+    resolution: {integrity: sha1-jBGntzBlXF1WiYzchxIk9A/ZAdU=, tarball: bl/download/bl-2.2.1.tgz}
+    dependencies:
+      readable-stream: 2.3.7
+      safe-buffer: 5.2.1
+    dev: false
+
   /bl/4.1.0:
     resolution: {integrity: sha1-RRU1JkGCvsL7vIOmKrmM8R2fezo=, tarball: bl/download/bl-4.1.0.tgz}
     dependencies:
@@ -417,6 +434,10 @@ packages:
       inherits: 2.0.4
       readable-stream: 3.6.0
     dev: true
+
+  /bluebird/3.5.1:
+    resolution: {integrity: sha1-2VUfnemPH82h5oPRfukaBgLuLrk=, tarball: bluebird/download/bluebird-3.5.1.tgz}
+    dev: false
 
   /body-parser/1.19.0:
     resolution: {integrity: sha1-lrJwnlfJxOCab9Zqj9l5hE9p8Io=, tarball: body-parser/download/body-parser-1.19.0.tgz}
@@ -472,7 +493,6 @@ packages:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
-    dev: true
 
   /buffer/6.0.3:
     resolution: {integrity: sha1-Ks5XhFnMj74qcKqo9S7mO2p0xsY=, tarball: buffer/download/buffer-6.0.3.tgz}
@@ -1202,6 +1222,8 @@ packages:
       '@tootallnate/once': 1.1.2
       agent-base: 6.0.2
       debug: registry.nlark.com/debug/4.3.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /https-proxy-agent/5.0.0:
@@ -1210,6 +1232,8 @@ packages:
     dependencies:
       agent-base: 6.0.2
       debug: registry.nlark.com/debug/4.3.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /ieee754/1.2.1:
@@ -1351,6 +1375,8 @@ packages:
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.0.0
       semver: 6.3.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /istanbul-lib-report/3.0.0:
@@ -1369,6 +1395,8 @@ packages:
       debug: registry.nlark.com/debug/4.3.2
       istanbul-lib-coverage: 3.0.0
       source-map: 0.6.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /istanbul-reports/3.0.2:
@@ -1450,6 +1478,10 @@ packages:
     optionalDependencies:
       graceful-fs: 4.2.6
     dev: true
+
+  /kareem/2.3.2:
+    resolution: {integrity: sha1-eMRQiJSYW404oNwV4ajhEHjyypM=, tarball: kareem/download/kareem-2.3.2.tgz}
+    dev: false
 
   /kleur/3.0.3:
     resolution: {integrity: sha1-p5yezIbuHOP6YgbRIWxQHxR/wH4=, tarball: kleur/download/kleur-3.0.3.tgz}
@@ -1576,6 +1608,11 @@ packages:
       fs-monkey: 1.0.3
     dev: true
 
+  /memory-pager/1.5.0:
+    resolution: {integrity: sha1-2HUWVdItOEaCdByXLyw9bfo+ZrU=, tarball: memory-pager/download/memory-pager-1.5.0.tgz}
+    dev: false
+    optional: true
+
   /merge-descriptors/1.0.1:
     resolution: {integrity: sha1-sAqqVW3YtEVoFQ7J0blT8/kMu2E=, tarball: merge-descriptors/download/merge-descriptors-1.0.1.tgz}
     dev: false
@@ -1637,6 +1674,19 @@ packages:
     resolution: {integrity: sha1-PrXtYmInVteaXw4qIh3+utdcL34=, tarball: mkdirp/download/mkdirp-1.0.4.tgz}
     engines: {node: '>=10'}
     hasBin: true
+
+  /mongoose-legacy-pluralize/1.0.2_mongoose@5.13.3:
+    resolution: {integrity: sha1-O6n5H6UHtRhtOZ+0CFS/8Y+1Y+Q=, tarball: mongoose-legacy-pluralize/download/mongoose-legacy-pluralize-1.0.2.tgz}
+    peerDependencies:
+      mongoose: '*'
+    dependencies:
+      mongoose: registry.nlark.com/mongoose/5.13.3
+    dev: false
+
+  /mpath/0.8.3:
+    resolution: {integrity: sha1-gorA0Yf39CZ0g510khlwl5q73Y8=, tarball: mpath/download/mpath-0.8.3.tgz}
+    engines: {node: '>=4.0.0'}
+    dev: false
 
   /ms/2.0.0:
     resolution: {integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=, tarball: ms/download/ms-2.0.0.tgz?cache=0&sync_timestamp=1607436580765&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fms%2Fdownload%2Fms-2.0.0.tgz}
@@ -2062,6 +2112,10 @@ packages:
     resolution: {integrity: sha1-Z648pXyXKiqhZCsQ/jY/4y1J3Ag=, tarball: reflect-metadata/download/reflect-metadata-0.1.13.tgz}
     dev: false
 
+  /regexp-clone/1.0.0:
+    resolution: {integrity: sha1-Ii25Z2IydwViYLmSYmNUoEzpv2M=, tarball: regexp-clone/download/regexp-clone-1.0.0.tgz}
+    dev: false
+
   /require-directory/2.1.1:
     resolution: {integrity: sha1-jGStX9MNqxyXbiNE/+f3kqam30I=, tarball: require-directory/download/require-directory-2.1.1.tgz}
     engines: {node: '>=0.10.0'}
@@ -2141,6 +2195,14 @@ packages:
 
   /safer-buffer/2.1.2:
     resolution: {integrity: sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=, tarball: safer-buffer/download/safer-buffer-2.1.2.tgz}
+
+  /saslprep/1.0.3:
+    resolution: {integrity: sha1-TAL5RrVs9UKX40e6EJPnrKxM8iY=, tarball: saslprep/download/saslprep-1.0.3.tgz}
+    engines: {node: '>=6'}
+    dependencies:
+      sparse-bitfield: 3.0.3
+    dev: false
+    optional: true
 
   /sax/1.2.4:
     resolution: {integrity: sha1-KBYjTiN4vdxOU1T6tcqold9xANk=, tarball: sax/download/sax-1.2.4.tgz}
@@ -2291,6 +2353,13 @@ packages:
   /sourcemap-codec/1.4.8:
     resolution: {integrity: sha1-6oBL2UhXQC5pktBaOO8a41qatMQ=, tarball: sourcemap-codec/download/sourcemap-codec-1.4.8.tgz}
     dev: true
+
+  /sparse-bitfield/3.0.3:
+    resolution: {integrity: sha1-/0rm5oZWBWuks+eSqzM004JzyhE=, tarball: sparse-bitfield/download/sparse-bitfield-3.0.3.tgz}
+    dependencies:
+      memory-pager: 1.5.0
+    dev: false
+    optional: true
 
   /sprintf-js/1.0.3:
     resolution: {integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=, tarball: sprintf-js/download/sprintf-js-1.0.3.tgz}
@@ -2633,7 +2702,6 @@ packages:
   /webidl-conversions/6.1.0:
     resolution: {integrity: sha1-kRG01+qArNQPUnDWZmIa+ni2lRQ=, tarball: webidl-conversions/download/webidl-conversions-6.1.0.tgz}
     engines: {node: '>=10.4'}
-    dev: true
 
   /whatwg-encoding/1.0.5:
     resolution: {integrity: sha1-WrrPd3wyFmpR0IXWtPPn0nET3bA=, tarball: whatwg-encoding/download/whatwg-encoding-1.0.5.tgz}
@@ -2943,6 +3011,8 @@ packages:
       '@babel/template': registry.nlark.com/@babel/template/7.14.5
       '@babel/traverse': registry.nlark.com/@babel/traverse/7.14.8
       '@babel/types': registry.nlark.com/@babel/types/7.14.8
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.nlark.com/@babel/helper-optimise-call-expression/7.14.5:
@@ -2971,6 +3041,8 @@ packages:
       '@babel/helper-optimise-call-expression': registry.nlark.com/@babel/helper-optimise-call-expression/7.14.5
       '@babel/traverse': registry.nlark.com/@babel/traverse/7.14.8
       '@babel/types': registry.nlark.com/@babel/types/7.14.8
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.nlark.com/@babel/helper-simple-access/7.14.8:
@@ -3014,6 +3086,8 @@ packages:
       '@babel/template': registry.nlark.com/@babel/template/7.14.5
       '@babel/traverse': registry.nlark.com/@babel/traverse/7.14.8
       '@babel/types': registry.nlark.com/@babel/types/7.14.8
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.nlark.com/@babel/highlight/7.14.5:
@@ -3087,6 +3161,8 @@ packages:
       '@babel/types': registry.nlark.com/@babel/types/7.14.8
       debug: registry.nlark.com/debug/4.3.2
       globals: registry.nlark.com/globals/11.12.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.nlark.com/@babel/types/7.14.8:
@@ -3114,6 +3190,8 @@ packages:
       js-yaml: 3.14.1
       minimatch: 3.0.4
       strip-json-comments: 3.1.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.nlark.com/@fastify/ajv-compiler/1.1.0:
@@ -3133,6 +3211,8 @@ packages:
       '@humanwhocodes/object-schema': registry.nlark.com/@humanwhocodes/object-schema/1.2.0
       debug: registry.nlark.com/debug/4.3.2
       minimatch: 3.0.4
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.nlark.com/@humanwhocodes/object-schema/1.2.0:
@@ -3276,6 +3356,8 @@ packages:
       string-length: registry.nlark.com/string-length/4.0.2
       terminal-link: registry.nlark.com/terminal-link/2.1.1
       v8-to-istanbul: registry.nlark.com/v8-to-istanbul/8.0.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.nlark.com/@jest/source-map/27.0.6:
@@ -3311,6 +3393,8 @@ packages:
       graceful-fs: 4.2.6
       jest-haste-map: registry.nlark.com/jest-haste-map/27.0.6
       jest-runtime: registry.nlark.com/jest-runtime/27.0.6
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.nlark.com/@jest/transform/27.0.6:
@@ -3334,6 +3418,8 @@ packages:
       slash: 3.0.0
       source-map: 0.6.1
       write-file-atomic: 3.0.3
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.nlark.com/@jest/types/26.6.2:
@@ -3507,6 +3593,25 @@ packages:
       reflect-metadata: 0.1.13
       rxjs: registry.nlark.com/rxjs/7.2.0
       tslib: registry.nlark.com/tslib/2.3.0
+    dev: false
+
+  registry.nlark.com/@nestjs/mongoose/8.0.0_a2f0f28a212a354a393b376f814c3636:
+    resolution: {integrity: sha1-V3HWKpa2OuRO5aMh1npli8M4H9g=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@nestjs/mongoose/download/@nestjs/mongoose-8.0.0.tgz}
+    id: registry.nlark.com/@nestjs/mongoose/8.0.0
+    name: '@nestjs/mongoose'
+    version: 8.0.0
+    peerDependencies:
+      '@nestjs/common': ^6.0.0 || ^7.0.0 || ^8.0.0
+      '@nestjs/core': ^6.0.0 || ^7.0.0 || ^8.0.0
+      mongoose: ^5.11.15 || ^5.12.4
+      reflect-metadata: ^0.1.12
+      rxjs: ^6.0.0 || ^7.0.0
+    dependencies:
+      '@nestjs/common': registry.nlark.com/@nestjs/common/8.0.4_720aee53c9b35ab07755629fb64263e2
+      '@nestjs/core': registry.nlark.com/@nestjs/core/8.0.4_2af18fb01f8327c1d6d9ce13adf5e592
+      mongoose: registry.nlark.com/mongoose/5.13.3
+      reflect-metadata: 0.1.13
+      rxjs: registry.nlark.com/rxjs/7.2.0
     dev: false
 
   registry.nlark.com/@nestjs/platform-express/8.0.4_dbb23fa745e40b87eda38a58a66b6bd5:
@@ -3740,6 +3845,14 @@ packages:
       '@types/node': registry.nlark.com/@types/node/16.4.0
     dev: true
 
+  registry.nlark.com/@types/bson/4.0.4:
+    resolution: {integrity: sha1-edLSboEHAETbKhqLLML2c8hA4eU=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@types/bson/download/@types/bson-4.0.4.tgz}
+    name: '@types/bson'
+    version: 4.0.4
+    dependencies:
+      '@types/node': registry.nlark.com/@types/node/16.4.1
+    dev: false
+
   registry.nlark.com/@types/cache-manager-redis-store/2.0.0:
     resolution: {integrity: sha1-gbvBLvtmiY5UhPgXeYUO70P1mb4=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@types/cache-manager-redis-store/download/@types/cache-manager-redis-store-2.0.0.tgz}
     name: '@types/cache-manager-redis-store'
@@ -3871,11 +3984,32 @@ packages:
     version: 1.3.2
     dev: true
 
+  registry.nlark.com/@types/mongodb/3.6.20:
+    resolution: {integrity: sha1-t8XFgGRPY2QAK2Sa8cBsPARU4dI=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@types/mongodb/download/@types/mongodb-3.6.20.tgz}
+    name: '@types/mongodb'
+    version: 3.6.20
+    dependencies:
+      '@types/bson': registry.nlark.com/@types/bson/4.0.4
+      '@types/node': registry.nlark.com/@types/node/16.4.1
+    dev: false
+
+  registry.nlark.com/@types/node/15.14.2:
+    resolution: {integrity: sha1-evirIBVlhvB29HYLwbPF3f/9H/I=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@types/node/download/@types/node-15.14.2.tgz}
+    name: '@types/node'
+    version: 15.14.2
+    dev: false
+
   registry.nlark.com/@types/node/16.4.0:
     resolution: {integrity: sha1-LCGeqjuNHk0E9N1uQLxox0Z9UnI=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@types/node/download/@types/node-16.4.0.tgz}
     name: '@types/node'
     version: 16.4.0
     dev: true
+
+  registry.nlark.com/@types/node/16.4.1:
+    resolution: {integrity: sha1-n60XGltwFhPuim9OzjyIsQNLGwM=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@types/node/download/@types/node-16.4.1.tgz}
+    name: '@types/node'
+    version: 16.4.1
+    dev: false
 
   registry.nlark.com/@types/parse-json/4.0.0:
     resolution: {integrity: sha1-L4u0QUNNFjs1+4/9zNcTiSf/uMA=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@types/parse-json/download/@types/parse-json-4.0.0.tgz}
@@ -4414,6 +4548,8 @@ packages:
       chalk: registry.nlark.com/chalk/4.1.1
       graceful-fs: 4.2.6
       slash: 3.0.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.nlark.com/babel-plugin-jest-hoist/27.0.6:
@@ -4455,6 +4591,22 @@ packages:
       escalade: 3.1.1
       node-releases: registry.nlark.com/node-releases/1.1.73
     dev: true
+
+  registry.nlark.com/bson/1.1.6:
+    resolution: {integrity: sha1-+4Gb6aYM1nfghTruTKcSp4XWYYo=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/bson/download/bson-1.1.6.tgz}
+    name: bson
+    version: 1.1.6
+    engines: {node: '>=0.6.19'}
+    dev: false
+
+  registry.nlark.com/bson/4.4.1:
+    resolution: {integrity: sha1-aCw8uLkLIiQUzhTvg5gVS6LMIbw=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/bson/download/bson-4.4.1.tgz}
+    name: bson
+    version: 4.4.1
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      buffer: 5.7.1
+    dev: false
 
   registry.nlark.com/cache-manager-redis-store/2.0.0:
     resolution: {integrity: sha1-JduTZWxKt7NZG9bKNw4YjvkHVMk=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/cache-manager-redis-store/download/cache-manager-redis-store-2.0.0.tgz}
@@ -4629,6 +4781,14 @@ packages:
     resolution: {integrity: sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/debug/download/debug-2.6.9.tgz}
     name: debug
     version: 2.6.9
+    dependencies:
+      ms: 2.0.0
+    dev: false
+
+  registry.nlark.com/debug/3.1.0:
+    resolution: {integrity: sha1-W7WgZyYotkFJVmuhaBnmFRjGcmE=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/debug/download/debug-3.1.0.tgz}
+    name: debug
+    version: 3.1.0
     dependencies:
       ms: 2.0.0
     dev: false
@@ -4818,6 +4978,8 @@ packages:
       table: registry.nlark.com/table/6.7.1
       text-table: 0.2.0
       v8-compile-cache: 2.3.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.nlark.com/espree/7.3.1:
@@ -5321,6 +5483,8 @@ packages:
       slash: 3.0.0
       stack-utils: 2.0.3
       throat: 6.0.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.nlark.com/jest-cli/27.0.6_ts-node@10.1.0:
@@ -5459,6 +5623,7 @@ packages:
     transitivePeerDependencies:
       - bufferutil
       - canvas
+      - supports-color
       - utf-8-validate
     dev: true
 
@@ -5536,6 +5701,8 @@ packages:
       jest-util: registry.nlark.com/jest-util/27.0.6
       pretty-format: registry.nlark.com/pretty-format/27.0.6
       throat: 6.0.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.nlark.com/jest-leak-detector/27.0.6:
@@ -5603,6 +5770,8 @@ packages:
       '@jest/types': registry.nlark.com/@jest/types/27.0.6
       jest-regex-util: registry.nlark.com/jest-regex-util/27.0.6
       jest-snapshot: registry.nlark.com/jest-snapshot/27.0.6
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.nlark.com/jest-resolve/27.0.6:
@@ -5653,6 +5822,7 @@ packages:
     transitivePeerDependencies:
       - bufferutil
       - canvas
+      - supports-color
       - utf-8-validate
     dev: true
 
@@ -5688,6 +5858,8 @@ packages:
       slash: 3.0.0
       strip-bom: 4.0.0
       yargs: registry.nlark.com/yargs/16.2.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.nlark.com/jest-serializer/27.0.6:
@@ -5858,6 +6030,7 @@ packages:
       xml-name-validator: 3.0.0
     transitivePeerDependencies:
       - bufferutil
+      - supports-color
       - utf-8-validate
     dev: true
 
@@ -5923,6 +6096,103 @@ packages:
     dependencies:
       mime-db: registry.nlark.com/mime-db/1.48.0
 
+  registry.nlark.com/mongodb-connection-string-url/1.0.1:
+    resolution: {integrity: sha1-FQm0RXCFH1Mx+cpwUrcjeJ1j+Nw=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/mongodb-connection-string-url/download/mongodb-connection-string-url-1.0.1.tgz}
+    name: mongodb-connection-string-url
+    version: 1.0.1
+    dependencies:
+      whatwg-url: registry.nlark.com/whatwg-url/8.7.0
+    dev: false
+
+  registry.nlark.com/mongodb/3.6.10:
+    resolution: {integrity: sha1-8Q6ZARPIaxlcivBZm5s6kHSLbuQ=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/mongodb/download/mongodb-3.6.10.tgz}
+    name: mongodb
+    version: 3.6.10
+    engines: {node: '>=4'}
+    peerDependencies:
+      aws4: '*'
+      bson-ext: '*'
+      kerberos: '*'
+      mongodb-client-encryption: '*'
+      mongodb-extjson: '*'
+      snappy: '*'
+    peerDependenciesMeta:
+      aws4:
+        optional: true
+      bson-ext:
+        optional: true
+      kerberos:
+        optional: true
+      mongodb-client-encryption:
+        optional: true
+      mongodb-extjson:
+        optional: true
+      snappy:
+        optional: true
+    dependencies:
+      bl: 2.2.1
+      bson: registry.nlark.com/bson/1.1.6
+      denque: 1.5.0
+      optional-require: registry.nlark.com/optional-require/1.1.0
+      safe-buffer: 5.2.1
+    optionalDependencies:
+      saslprep: 1.0.3
+    dev: false
+
+  registry.nlark.com/mongodb/4.0.1:
+    resolution: {integrity: sha1-5/qN40SEkgl7PGeg2YDEgWkHqoM=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/mongodb/download/mongodb-4.0.1.tgz}
+    name: mongodb
+    version: 4.0.1
+    engines: {node: '>=12.9.0'}
+    dependencies:
+      bson: registry.nlark.com/bson/4.4.1
+      denque: 1.5.0
+      mongodb-connection-string-url: registry.nlark.com/mongodb-connection-string-url/1.0.1
+    optionalDependencies:
+      saslprep: 1.0.3
+    dev: false
+
+  registry.nlark.com/mongoose/5.13.3:
+    resolution: {integrity: sha1-QstAIHu8rKnG+pSwqMCjgYHBll4=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/mongoose/download/mongoose-5.13.3.tgz}
+    name: mongoose
+    version: 5.13.3
+    engines: {node: '>=4.0.0'}
+    dependencies:
+      '@types/mongodb': registry.nlark.com/@types/mongodb/3.6.20
+      '@types/node': registry.nlark.com/@types/node/15.14.2
+      bson: registry.nlark.com/bson/1.1.6
+      kareem: 2.3.2
+      mongodb: registry.nlark.com/mongodb/3.6.10
+      mongoose-legacy-pluralize: 1.0.2_mongoose@5.13.3
+      mpath: 0.8.3
+      mquery: registry.nlark.com/mquery/3.2.5
+      ms: 2.1.2
+      regexp-clone: 1.0.0
+      safe-buffer: 5.2.1
+      sift: registry.nlark.com/sift/13.5.2
+      sliced: registry.nlark.com/sliced/1.0.1
+    transitivePeerDependencies:
+      - aws4
+      - bson-ext
+      - kerberos
+      - mongodb-client-encryption
+      - mongodb-extjson
+      - snappy
+    dev: false
+
+  registry.nlark.com/mquery/3.2.5:
+    resolution: {integrity: sha1-jyMFYy5LsZf2j2DAz/ohqvQGDFE=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/mquery/download/mquery-3.2.5.tgz}
+    name: mquery
+    version: 3.2.5
+    engines: {node: '>=4.0.0'}
+    dependencies:
+      bluebird: 3.5.1
+      debug: registry.nlark.com/debug/3.1.0
+      regexp-clone: 1.0.0
+      safe-buffer: 5.1.2
+      sliced: registry.nlark.com/sliced/1.0.1
+    dev: false
+
   registry.nlark.com/multer/1.4.2:
     resolution: {integrity: sha1-Lx9NEtuu66dMs35iPyNL9NPSBXo=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/multer/download/multer-1.4.2.tgz}
     name: multer
@@ -5976,6 +6246,15 @@ packages:
     name: object-inspect
     version: 1.11.0
     dev: true
+
+  registry.nlark.com/optional-require/1.1.0:
+    resolution: {integrity: sha1-Ad+6+7wujXnjNVj1rzkX8izDXCw=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/optional-require/download/optional-require-1.1.0.tgz}
+    name: optional-require
+    version: 1.1.0
+    engines: {node: '>=4'}
+    dependencies:
+      require-at: registry.nlark.com/require-at/1.0.6
+    dev: false
 
   registry.nlark.com/optional/0.1.4:
     resolution: {integrity: sha1-zbGpvtxzfSAl9pDO61DgSURP1bM=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/optional/download/optional-0.1.4.tgz}
@@ -6132,6 +6411,13 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  registry.nlark.com/require-at/1.0.6:
+    resolution: {integrity: sha1-nrfjxeAHJ/WkdEBwp/Vg1N5Pbmo=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/require-at/download/require-at-1.0.6.tgz}
+    name: require-at
+    version: 1.0.6
+    engines: {node: '>=4'}
+    dev: false
+
   registry.nlark.com/rxjs/6.6.7:
     resolution: {integrity: sha1-kKwBisq/SRv2UEQjXVhjxNq4BMk=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/rxjs/download/rxjs-6.6.7.tgz?cache=0&sync_timestamp=1625506891477&other_urls=https%3A%2F%2Fregistry.nlark.com%2Frxjs%2Fdownload%2Frxjs-6.6.7.tgz}
     name: rxjs
@@ -6205,6 +6491,12 @@ packages:
     version: 2.4.8
     dev: false
 
+  registry.nlark.com/sift/13.5.2:
+    resolution: {integrity: sha1-JKcV4TxhewhhZs0EkX0gSlkcnaY=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/sift/download/sift-13.5.2.tgz}
+    name: sift
+    version: 13.5.2
+    dev: false
+
   registry.nlark.com/sinon/11.1.1:
     resolution: {integrity: sha1-maKVqLbw+tu7fgBAdvOuVPxuq5E=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/sinon/download/sinon-11.1.1.tgz}
     name: sinon
@@ -6217,6 +6509,12 @@ packages:
       nise: registry.nlark.com/nise/5.1.0
       supports-color: registry.nlark.com/supports-color/7.2.0
     dev: true
+
+  registry.nlark.com/sliced/1.0.1:
+    resolution: {integrity: sha1-CzpmK10Ewxd7GSa+qCsD+Dei70E=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/sliced/download/sliced-1.0.1.tgz}
+    name: sliced
+    version: 1.0.1
+    dev: false
 
   registry.nlark.com/sonic-boom/1.4.1:
     resolution: {integrity: sha1-011qdAdmJPEub5F63nuddekY9T4=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/sonic-boom/download/sonic-boom-1.4.1.tgz}
@@ -6355,7 +6653,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       punycode: 2.1.1
-    dev: true
 
   registry.nlark.com/ts-jest/27.0.3_jest@27.0.6+typescript@4.3.5:
     resolution: {integrity: sha1-gISS8CIpbN4ZOQu2rWJ8gSa/k/g=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/ts-jest/download/ts-jest-27.0.3.tgz}
@@ -6495,6 +6792,8 @@ packages:
       yargonaut: 1.1.4
       yargs: registry.nlark.com/yargs/16.2.0
       zen-observable-ts: registry.nlark.com/zen-observable-ts/1.0.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   registry.nlark.com/typescript/4.3.5:
@@ -6603,7 +6902,6 @@ packages:
       lodash: 4.17.21
       tr46: registry.nlark.com/tr46/2.1.0
       webidl-conversions: 6.1.0
-    dev: true
 
   registry.nlark.com/wrappy/1.0.2:
     resolution: {integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/wrappy/download/wrappy-1.0.2.tgz}
